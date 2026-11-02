@@ -2,8 +2,6 @@ import pytest
 from gym_membership import membership_cost, can_enter, bmi_category
 
 
-# Membership cost: valid and invalid plans, age limits, discounts and trainer options
-
 def test_invalid_plan():
     with pytest.raises(ValueError):
         membership_cost("weekly", 30, False, False)
@@ -46,7 +44,6 @@ def test_quarterly_without_trainer():
     assert membership_cost("quarterly", 30, False, False) == 4000
 
 
-# Gym entry: both outcomes of membership, hour limits, women-only slot and gender
 
 def test_inactive_membership_denies_entry():
     assert can_enter(10, False, False, "M") is False
@@ -80,7 +77,6 @@ def test_women_only_slot_denies_male_member():
     assert can_enter(10, True, True, "M") is False
 
 
-# BMI: invalid height and all category boundaries/outcomes
 
 def test_zero_height_raises_error():
     with pytest.raises(ValueError):
