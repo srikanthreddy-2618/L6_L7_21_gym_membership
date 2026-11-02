@@ -2,8 +2,6 @@ import pytest
 from gym_membership import membership_cost, can_enter, bmi_category
 
 
-# Membership cost tests
-
 def test_monthly_plan():
     assert membership_cost("monthly", 30, False, False) == 1500
 
@@ -42,7 +40,6 @@ def test_yearly_trainer_discount():
     assert membership_cost("yearly", 30, False, True) == 13500
 
 
-# Gym entry tests
 
 def test_valid_entry():
     assert can_enter(10, True, False, "M") is True
@@ -68,7 +65,6 @@ def test_women_only_male():
     assert can_enter(10, True, True, "M") is False
 
 
-# BMI tests
 
 def test_invalid_height():
     with pytest.raises(ValueError):
